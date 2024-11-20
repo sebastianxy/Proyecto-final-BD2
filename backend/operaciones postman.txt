@@ -1,0 +1,71 @@
+OPERACIONES POST (CREAR)
+CREAR CITA MEDICA: http://localhost:8081/api/citasMedicas/crear
+
+{
+    "id": "64b8a0fef2b1c9737c4a456d",  // 24 caracteres hexadecimales
+    "horario": "2024-11-20T10:00:00",
+    "consultorio": 101,
+    "medicoTratante": "Carlos Gómez",
+    "iddoctor": "64b8a0fef2b1c9737c4a456e",  // 24 caracteres hexadecimales
+    "paciente": "Juan Pérez",
+    "idpaciente": "64b8a0fef2b1c9737c4a456f",  // 24 caracteres hexadecimales
+    "diagnostico": "Dolor de espalda"
+}
+
+
+
+CREAR DOCTOR:http://localhost:8081/api/doctores/crear
+
+{
+    "id": "doc1",
+    "nombre": "Carlos",
+    "apellido": "PRUEBA",
+    "edad": 45,
+    "cedula": "987654321",
+    "especialidad": "Ortopedia"
+}
+
+
+CREAR PACIENTE: http://localhost:8081/api/pacientes/crear
+
+{
+    "id": "64a8a0fef2b1c9737c4a456d"
+    "nombre": "PRUEBA",
+    "apellido": "Pérez",
+    "edad": 30,
+    "cedula": "123456789",
+    "condicion": "Columna dislocada",
+    "eps": "Sanitas",
+    "prioridad": "Alta",
+    "iddoctor": "64a8a0fef2b1c9737c4a456e"
+}
+
+OPERACIONES PUT (ACTUALIZAR)
+PACIENTE: http://localhost:8081/api/pacientes/actualizar
+
+{
+  "_id": {
+    "$oid": "66f46db5c8b6caa467f914e7"
+  },
+  "id": "pa1",
+  "nombre": "pepito",
+  "apellido": "PRUEBA",
+  "edad": 32
+  "cedula": "123456789",
+  "condicion": "cancer"
+  "eps": "sanitas",
+  "prioridad": "baja",
+  "iddoctor": {
+    "$oid": "66f46d35c8b6caa467f914e3"
+  }
+}
+
+
+DOCTORES: http://localhost:8081/api/doctores/actualizar
+CITAS MEDICAS: http://localhost:8081/api/citasMedicas/actualizar
+
+GET Obtener pacientes por edad y EPS: http://localhost:8081/api/pacientes/rango-edad-eps?edadMin=20&edadMax=40&eps=sanitas
+
+PUT Actualizar prioridad: http://localhost:8081/api/pacientes/prioridad-especial
+
+GET Obtener determinada EPS y mayores a 65: http://localhost:8081/api/pacientes/eps-mayores?eps=sanitas&edad=65
